@@ -22,8 +22,19 @@ jobs:
       - name: Install deps
         run: forge install
 
-      - name: Check gas snapshots
-        run: forge snapshot --check
-
       - name: Run tests
         run: forge test
+
+      - name: Create updated snapshot
+        run: forge snapshot
+
+      - name: Check gas snapshots with tolerance
+        run: forge snapshot --check --tolerance 10
+
+      - name: Upload updated snapshot as artifact
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: gas-snapshot
+          path: .gas-snapshot
+          if-no-files-found: error

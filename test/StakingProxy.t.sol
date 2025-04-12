@@ -25,13 +25,10 @@ contract StakingProxyTestContract is Test {
             abi.encodeWithSignature("stake(uint256)", value)
         );
         assert(success);
-        (bool success2, bytes memory data) = address(c).delegatecall(
-            abi.encodeWithSignature("getTotalStaked()")
-        );
-        assert(success2);
-        console.logBytes(data);
-        uint currentStake = abi.decode(data, (uint256));
-        console.log(currentStake);
+
+        // Get the totalStaked directly from the proxy contract
+        uint currentStake = c.totalStaked();
+        console.log("Total staked:", currentStake);
         assert(currentStake == value);
     }
 }

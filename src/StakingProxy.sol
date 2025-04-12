@@ -5,6 +5,8 @@ contract StakingProxy {
     uint256 public totalStaked;
     mapping(address => uint256) public stakedBalances;
 
+    receive() external payable {}
+
     address public implementation;
 
     constructor(address _implementation) {

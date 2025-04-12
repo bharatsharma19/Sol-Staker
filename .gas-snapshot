@@ -1,1 +1,7 @@
-TestContract:testBar() (gas: 401)
+StakingProxyTestContract:testStake() (gas: 69050)
+StakingTestContract2:testStake() (gas: 60766)
+StakingTestContract2:testUnStake() (gas: 71266)
+StakingTestContract:testStake() (gas: 60766)
+StakingTestContract:testUnStake() (gas: 74618)
+TestContract:testBar() (gas: 400)
+TestContract:testFoo(uint256) (runs: 256, μ: 3417, ~: 3417)

@@ -1,4 +1,5 @@
-StakingProxyTestContract:testStake() (gas: 69050)
+StakingProxyTestContract:testStake() (gas: 66055)
+StakingProxyTestContract:testUpgradeImplementation() (gas: 97789)
 StakingTestContract2:testStake() (gas: 60766)
 StakingTestContract2:testUnStake() (gas: 71266)
 StakingTestContract:testStake() (gas: 60766)

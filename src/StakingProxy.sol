@@ -5,12 +5,23 @@ contract StakingProxy {
     uint256 public totalStaked;
     mapping(address => uint256) public stakedBalances;
 
-    receive() external payable {}
-
+    address public owner;
     address public implementation;
+
+    receive() external payable {}
 
     constructor(address _implementation) {
         implementation = _implementation;
+        owner = msg.sender;
+    }
+
+    function updateImplementation(address _newImplementation) external {
+        require(msg.sender == owner, "Only owner can update implementation");
+        require(
+            _newImplementation != address(0),
+            "Invalid implementation address"
+        );
+        implementation = _newImplementation;
     }
 
     fallback() external payable {
